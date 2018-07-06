@@ -11,7 +11,7 @@ public class MarketPage extends PageBase {
 
     private static final By sectionElectronics = By.xpath("//li[@data-department='Электроника']");
     private static final By tv = By.xpath("//a[contains(@href, '59601')]");
-    private static final By headphones = By.xpath("//a[contains(@class, 'topmenu__subitem_nid_56179')]");
+    private static final By headphones = By.xpath("//a[contains(@href, '56179')]");
     private static final By headerSearch = By.xpath("//*[@id='header-search']");
 
     public MarketPage(WebDriver driver) {

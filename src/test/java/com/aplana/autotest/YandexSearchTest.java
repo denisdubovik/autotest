@@ -26,7 +26,7 @@ public class YandexSearchTest {
     }
 
     @Test
-    public void searchForTV(){
+    void searchForTV(){
 
         MarketPage marketPage = new MarketPage(driver);
         marketPage.goToElectronicsTV();
@@ -37,7 +37,7 @@ public class YandexSearchTest {
     }
 
    @Test
-    public void searchForHeadphones(){
+    void searchForHeadphones(){
 
         MarketPage marketPage = new MarketPage(driver);
         marketPage.goToElectronicsHeadphones();
