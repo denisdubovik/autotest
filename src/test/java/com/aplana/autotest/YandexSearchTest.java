@@ -1,21 +1,21 @@
 package com.aplana.autotest;
 
 import com.aplana.autotest.pages.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.*;
 
 import static com.aplana.autotest.CustomDriver.createChromeDriver;
 import static java.lang.String.format;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 
 public class YandexSearchTest {
 
     private WebDriver driver;
 
-    @BeforeEach
+    @BeforeMethod
     public void setup() {
         driver = createChromeDriver();
         driver.manage().window().maximize();
@@ -29,6 +29,7 @@ public class YandexSearchTest {
     void searchForTV(){
 
         MarketPage marketPage = new MarketPage(driver);
+        marketPage.cleanMarketPage();
         marketPage.goToElectronicsTV();
 
         ProductPage productPage= new ProductPage(driver);
@@ -40,6 +41,7 @@ public class YandexSearchTest {
     void searchForHeadphones(){
 
         MarketPage marketPage = new MarketPage(driver);
+        marketPage.cleanMarketPage();
         marketPage.goToElectronicsHeadphones();
 
         ProductPage productPage= new ProductPage(driver);
@@ -47,7 +49,7 @@ public class YandexSearchTest {
         productPage.selectFiltersHeadphones();
     }
 
-    @AfterEach
+    @AfterMethod
     public void tearDown() {
 
         ProductPage productPage= new ProductPage(driver);

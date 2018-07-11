@@ -9,20 +9,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MarketPage extends PageBase {
 
-    private static final By sectionElectronics = By.xpath("//li[@data-department='Электроника']");
+    private static final By sectionElectronics = By.xpath("//a[contains(@href, '54440')]");
     private static final By tv = By.xpath("//a[contains(@href, '59601')]");
     private static final By headphones = By.xpath("//a[contains(@href, '56179')]");
     private static final By headerSearch = By.xpath("//*[@id='header-search']");
+    private static final By returnButton = By.xpath("//span[text()='Вернуться на Маркет']/..");
 
     public MarketPage(WebDriver driver) {
         this.driver = driver;
     }
 
+    public void cleanMarketPage(){
+
+        try {
+            driver.findElement(returnButton).click();
+        }
+        catch (Exception e){
+        }
+        finally {
+            driver.findElement(headerSearch).click();
+        }
+
+    }
+
     public void goToElectronicsTV(){
+
         WebElement mainMenu = driver.findElement(sectionElectronics);
         WebElement subMenu = driver.findElement(tv);
 
-        driver.findElement(headerSearch).click();
         Actions builder = new Actions(driver);
         builder.moveToElement(mainMenu).build().perform();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(subMenu));
@@ -33,7 +47,6 @@ public class MarketPage extends PageBase {
         WebElement mainMenu = driver.findElement(sectionElectronics);
         WebElement subMenu = driver.findElement(headphones);
 
-        driver.findElement(headerSearch).click();
         Actions builder = new Actions(driver);
         builder.moveToElement(mainMenu).build().perform();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(subMenu));

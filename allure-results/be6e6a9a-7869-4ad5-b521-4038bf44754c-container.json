@@ -1,0 +1,1 @@
+{"uuid":"be6e6a9a-7869-4ad5-b521-4038bf44754c","name":"com.aplana.autotest.YandexSearchTest.setup","description":"","start":1531232440736,"stop":1531232452111,"children":["a2cef5c2-8b49-4081-9374-f4dc0a0ed27c"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","start":1531232440736,"stop":1531232452111}]}
