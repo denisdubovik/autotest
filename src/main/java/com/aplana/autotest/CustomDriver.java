@@ -5,7 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class CustomDriver {
 
     public static ChromeDriver createChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", CustomDriver.class.getClassLoader().getResource("chromedriver.exe").getFile());
+        System.setProperty("webdriver.chrome.driver", "C:\\IdeaProjects\\autotest\\src\\main\\resources\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", CustomDriver.class.getClassLoader().getResource("chromedriver.exe").getFile());
+
         return new ChromeDriver();
     }
 }
