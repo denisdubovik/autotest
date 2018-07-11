@@ -1,1 +1,0 @@
-{"uuid":"f3989785-b409-4634-9ea4-7cae01a7dcaa","name":"com.aplana.autotest.YandexSearchTest.tearDown","description":"","start":1531232148413,"stop":1531232154804,"children":["90969664-2ccd-421d-b6b4-b234aa8fb84d"],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","start":1531232148413,"stop":1531232154804}]}
