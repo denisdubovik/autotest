@@ -35,6 +35,12 @@ public class YandexSearchTest {
         ProductPage productPage= new ProductPage(driver);
         productPage.setSize();
         productPage.selectFiltersTV();
+        assertTrue(productPage.isOfCorrectSize());
+        String nameFirstProductInProductPage = productPage.getNameFirstProductInPage();
+        productPage.goToSearch();
+
+        NewSerpPage newSerpPage = new NewSerpPage(driver);
+        assertEquals(nameFirstProductInProductPage, newSerpPage.getNameFirstProductInPage(), format("Критерий поиска не соответствует названию товара: ожидалось [%s], фактическое значение: [%s]", nameFirstProductInProductPage, newSerpPage.getNameFirstProductInPage()));
     }
 
    @Test
@@ -47,19 +53,16 @@ public class YandexSearchTest {
         ProductPage productPage= new ProductPage(driver);
         productPage.setSize();
         productPage.selectFiltersHeadphones();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-
-        ProductPage productPage= new ProductPage(driver);
         assertTrue(productPage.isOfCorrectSize());
         String nameFirstProductInProductPage = productPage.getNameFirstProductInPage();
         productPage.goToSearch();
 
         NewSerpPage newSerpPage = new NewSerpPage(driver);
         assertEquals(nameFirstProductInProductPage, newSerpPage.getNameFirstProductInPage(), format("Критерий поиска не соответствует названию товара: ожидалось [%s], фактическое значение: [%s]", nameFirstProductInProductPage, newSerpPage.getNameFirstProductInPage()));
+   }
 
+    @AfterMethod
+    public void tearDown() {
         driver.quit();
     }
 
