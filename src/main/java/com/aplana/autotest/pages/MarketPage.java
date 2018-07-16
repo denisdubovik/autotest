@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MarketPage extends PageBase {
 
     private static final By sectionElectronics = By.xpath("//a[contains(@href, '54440')]");
-    private static final By tv = By.xpath("//a[contains(@href, '59601')]");
-    private static final By headphones = By.xpath("//a[contains(@href, '56179')]");
+    private static final By tv = By.xpath("//a[contains(@href, '59601')][contains(@class, 'catalog-menu__list')]");
+    private static final By headphones = By.xpath("//a[contains(@href, '56179')][contains(@class, 'catalog-menu__list')]");
     private static final By headerSearch = By.xpath("//*[@id='header-search']");
     private static final By returnButton = By.xpath("//span[text()='Вернуться на Маркет']/..");
 
@@ -33,23 +33,26 @@ public class MarketPage extends PageBase {
     }
 
     public void goToElectronicsTV(){
+        driver.findElement(sectionElectronics).click();
+        driver.findElement(tv).click();
 
-        WebElement mainMenu = driver.findElement(sectionElectronics);
+        /*WebElement mainMenu = driver.findElement(sectionElectronics);
         WebElement subMenu = driver.findElement(tv);
-
         Actions builder = new Actions(driver);
         builder.moveToElement(mainMenu).build().perform();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(subMenu));
-        builder.moveToElement(subMenu).click(subMenu).build().perform();
+        builder.moveToElement(subMenu).click(subMenu).build().perform();*/
     }
 
     public void goToElectronicsHeadphones(){
-        WebElement mainMenu = driver.findElement(sectionElectronics);
-        WebElement subMenu = driver.findElement(headphones);
+        driver.findElement(sectionElectronics).click();
+        driver.findElement(headphones).click();
 
+        /*WebElement mainMenu = driver.findElement(sectionElectronics);
+        WebElement subMenu = driver.findElement(headphones);
         Actions builder = new Actions(driver);
         builder.moveToElement(mainMenu).build().perform();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(subMenu));
-        builder.moveToElement(subMenu).click(subMenu).build().perform();
+        builder.moveToElement(subMenu).click(subMenu).build().perform();*/
     }
 }

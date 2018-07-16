@@ -8,7 +8,7 @@ package com.aplana.autotest.pages;
 public class ProductPage extends PageBase {
 
     private static final int sizeElement = 12;
-    private static final String lowPriseTV = "20000", lowPriseHeadphones = "5000";
+    public static final String lowPriseTV = "20000", lowPriseHeadphones = "5000", HEADERTV="Телевизоры — купить на Яндекс.Маркете", HEADERHEADPHONES="Наушники и Bluetooth-гарнитуры — купить на Яндекс.Маркете";
     private static final By lowPrise = By.xpath("//input[@id='glpricefrom']");
     private static final By makerSamsung = By.xpath("//input[@id='7893318_153061']");
     private static final By makerLG = By.xpath("//input[@id='7893318_153074']");
